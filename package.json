@@ -1,0 +1,12 @@
+{
+  "name": "currency-convertor",
+  "version": "1.0.0",
+  "description": "This app will allow the user to select a currency and check its exchange rates with different currencies",
+  "main": "index.js",
+  "author": "avizil",
+  "license": "MIT",
+  "repository": "",
+  "scripts": {
+    "start": ""
+  }
+}
