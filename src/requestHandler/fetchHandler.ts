@@ -26,6 +26,6 @@ async function a(/*base: string, currencies: string[]*/) {
    console.log(b);
    console.log("ILS - " + b.rates.get("ILS"));
 }
-a();
+// a();
 
 // fetchExchangeRates("USD", ["ILS", "GBP"]);

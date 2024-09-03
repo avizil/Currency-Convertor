@@ -1,6 +1,6 @@
 import { fetchExchangeRates } from "./requestHandler/fetchHandler.js";
-import { cloneCurrencyRow } from "./buttons/addCurrencyRow.mjs";
-import { calculateRates } from "./buttons/calculateButton.js";
+import { cloneCurrencyRow } from "./buttons/addCurrencyRow/addCurrencyRow.js";
+import { calculateRates } from "./buttons/calculateButton/calculateButton.js";
 
 const calculateButton = document.getElementById("calculate_button");
 calculateButton.addEventListener("click", () => {
@@ -18,9 +18,3 @@ const addCurrencyButton = document.getElementById("add_currency_button");
 addCurrencyButton.addEventListener("click", () => {
    const newCurrencyRow = cloneCurrencyRow();
 });
-
-// async function a() {
-//    console.log(await fetchExchangeRates("USD", ["ILS"]));
-// }
-// a();
-// console.log("hey");
