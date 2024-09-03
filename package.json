@@ -6,7 +6,13 @@
   "author": "avizil",
   "license": "MIT",
   "repository": "",
+  "type": "module",
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "start": ""
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }

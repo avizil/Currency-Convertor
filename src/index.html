@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Currency Convertor</title>
+  <meta name="description" content="Our first page">
+  <meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <th> </th>
+        <th>Currency</th>
+        <th>Rate</th>
+        <th>Amount</th>
+      </tr>
+      <tr class="base_currency_row">
+        <td class="row_label">Base Currency</td>
+        <td> <input id="base_currency" class="user_input"></input> </td>
+        <td>
+          <center>1</center>
+        </td>
+        <td><input id="base_currency_amount" class="user_input"></input></td>
+      </tr>
+      <tr class="exchage_currency_row">
+        <td class="row_label">Currency #1</td>
+        <td> <input class="exchage_currency_name"></input> </td>
+        <td>
+          <center class="exchage_currency_rate"></center>
+        </td>
+        <td><input class="exchange_currency_amount"></input></td>
+        <td><button id="add_currency_button">+</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <button id="calculate_button">Calculate</button>
+</body>
+
+<script src="main.mjs" type="module"></script>
+
+</html>
