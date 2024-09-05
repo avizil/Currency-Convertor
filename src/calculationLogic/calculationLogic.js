@@ -2,14 +2,17 @@
 export function calculateRates(inputCurrency, inputAmount, exchageRates) {
     const amountsMap = new Map();
     // If the input currency is not the base currency, convert it to the main currency
-    const baseAmount = inputCurrency === exchageRates.baseCurrency
+    // (The conversion rates are fetched for the base currency in relation to the other currencies. To make the conversion, first find the bsae currency's amount)
+    const baseCurrencyAmount = inputCurrency === exchageRates.baseCurrency
         ? inputAmount
         : convertCurrency(inputAmount, inputCurrency, exchageRates.baseCurrency, exchageRates);
+    // Iterate over the remaining currencies and calculate their amounts
     Array.from(exchageRates.rates.keys()).forEach((currency) => {
+        // If the current iteration is the currency inputted by the user - the amount is already present
         if (inputCurrency !== currency) {
             const convertedAmount = currency === exchageRates.baseCurrency
-                ? baseAmount
-                : convertCurrency(baseAmount, exchageRates.baseCurrency, currency, exchageRates);
+                ? baseCurrencyAmount
+                : convertCurrency(baseCurrencyAmount, exchageRates.baseCurrency, currency, exchageRates);
             amountsMap.set(currency, convertedAmount);
         }
     });
