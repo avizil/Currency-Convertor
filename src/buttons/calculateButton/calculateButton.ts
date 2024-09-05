@@ -1,21 +1,33 @@
 import { fetchExchangeRates } from "../../requestHandler/fetchHandler.js";
 import { rateIndex, currNameIndex } from "../../consts/consts.js";
-import { ExchageRates } from "../../interfaces/exchageRates.interface.js";
+import { ExchageRates } from "../../interfaces/exchangeRates/exchageRates.interface.js";
+import { calculateRates } from "../../calculationLogic/calculationLogic.js";
+import { lastInput } from "../../inputTracking/inputTracker.js";
 
-export async function calculateRates(baseCurrency: string, conversionCurrencies: string[]) {
-   const ExchageRates: ExchageRates = await fetchExchangeRates(baseCurrency, conversionCurrencies);
-   console.log(ExchageRates);
-   populateRates(ExchageRates);
+// Arguments: baseCurrency - the currency which was entered, conversionCurrencies - a list of all currencies to be converted to
+export async function initiateCalculation(baseCurrency: string, conversionCurrencies: string[]) {
+   const exchageRates: ExchageRates = await fetchExchangeRates(baseCurrency, conversionCurrencies);
+   populateRates(exchageRates);
+   const convertedAmounts: Map<string, number> = calculateRates(lastInput.currencyName!, lastInput.amount!, exchageRates);
+   populateAmounts(convertedAmounts);
 }
 
-function populateRates(ExchageRates: ExchageRates) {
+function populateRates(exchageRates: ExchageRates) {
    const rows: HTMLCollection = document.getElementsByClassName("exchage_currency_row");
    (Array.from(rows) as HTMLTableRowElement[]).forEach((row: HTMLTableRowElement) => {
-      //   const currName = row.children[currNameIndex].value;
-      const nameCell: HTMLInputElement = document.evaluate('.//input[@class="exchage_currency_name"]', row, null, 9, null)
-         .singleNodeValue as HTMLInputElement;
-      const currName: string = nameCell.value;
-      console.log(currName);
-      row.children[rateIndex].textContent = String(ExchageRates.rates.get(currName));
+      const currName: string = (row.querySelector("input.exchage_currency_name") as HTMLInputElement).value;
+      row.children[rateIndex].textContent = String(exchageRates.rates.get(currName));
+   });
+}
+
+// Currently finding the index of the amount cell, to use it instead of document.evaluate each iterationwhat
+function populateAmounts(amountsMap: Map<string, number>) {
+   const rows: HTMLCollection = document.getElementsByClassName("exchage_currency_row");
+   (Array.from(rows) as HTMLTableRowElement[]).forEach((row: HTMLTableRowElement) => {
+      const currName: string = (row.querySelector("input.exchage_currency_name") as HTMLInputElement).value;
+      if (amountsMap.has(currName)) {
+         const amountInput: HTMLInputElement = row.querySelector("input.exchange_currency_amount") as HTMLInputElement;
+         amountInput.value = String(amountsMap.get(currName));
+      }
    });
 }
