@@ -15,6 +15,7 @@ calculateButton.addEventListener("click", () => {
 const addCurrencyButton = document.getElementById("add_currency_button");
 addCurrencyButton.addEventListener("click", () => {
    const newCurrencyRow = cloneCurrencyRow();
+   document.querySelector("tbody").append(newCurrencyRow);
 });
 
 // For some reason adding the event listener in a loop does not work
