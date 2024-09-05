@@ -16,22 +16,22 @@
         <th>Rate</th>
         <th>Amount</th>
       </tr>
-      <tr class="base_currency_row">
+      <tr id="base_currency_row" class="exchage_currency_row">
         <td class="row_label">Base Currency</td>
-        <td> <input id="base_currency" class="user_input"></input> </td>
-        <td>
+        <td class="td__currency_name"> <input id="base_currency" class="exchage_currency_name"></input> </td>
+        <td class="td__rate">
           <center>1</center>
         </td>
-        <td><input id="base_currency_amount" class="user_input"></input></td>
+        <td class="td__amount"><input id="base_currency_amount" class="exchange_currency_amount"></input></td>
       </tr>
       <tr class="exchage_currency_row">
         <td class="row_label">Currency #1</td>
-        <td> <input class="exchage_currency_name"></input> </td>
-        <td>
+        <td class="td__currency_name"> <input class="exchage_currency_name"></input> </td>
+        <td class="td__rate">
           <center class="exchage_currency_rate"></center>
         </td>
-        <td><input class="exchange_currency_amount"></input></td>
-        <td><button id="add_currency_button">+</button></td>
+        <td class="td__amount"><input class="exchange_currency_amount"></input></td>
+        <td class="td__add_button"><button id="add_currency_button">+</button></td>
       </tr>
 
     </tbody>

@@ -1,4 +1,4 @@
-import { ExchageRates } from "../interfaces/exchageRates.interface.js";
+import { ExchageRates } from "../interfaces/exchangeRates/exchageRates.interface.js";
 
 // Request URL: https://api.fxratesapi.com/latest?currencies={currencies to fetch}&base={base currency}&places={decimals places}&amount={amount}
 const baseUrl = "https://api.fxratesapi.com/";
