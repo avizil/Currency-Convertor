@@ -1,4 +1,6 @@
 import { updateLastInput } from "../../inputTracking/inputTracker.js";
+import { evaluateRowRemoval } from "../removeRow/removeButton.js";
+import { increaseRowCount } from "../../utilities/rowCounter/rowCounter.js";
 // First approach: clone the existing row
 export function cloneCurrencyRow() {
     // Clone the row
@@ -12,9 +14,12 @@ export function cloneCurrencyRow() {
     appendLabel(newCurrencyRow); // Change the row's label
     Array.from(newCurrencyRow.querySelectorAll("input")).forEach((input) => (input.value = "")); // Remove the cloned input data
     newCurrencyRow.querySelector("td.td__rate").textContent = "";
-    // Add an input event listener to identify the input amount
+    // Add event listeners - input detection, remove button
     const amountInput = newCurrencyRow.querySelector("input.exchange_currency_amount");
     amountInput.addEventListener("input", (event) => updateLastInput(event.target));
+    const removeRowButton = newCurrencyRow.querySelector("button.remove_row_button");
+    removeRowButton.addEventListener("click", (event) => evaluateRowRemoval(event.target));
+    increaseRowCount();
     return newCurrencyRow;
 }
 // Apeend 1 to the label's number

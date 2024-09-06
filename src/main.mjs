@@ -2,7 +2,9 @@ import { fetchExchangeRates } from "./requestHandler/fetchHandler.js";
 import { cloneCurrencyRow } from "./buttons/addCurrencyRow/addCurrencyRow.js";
 import { initiateCalculation } from "./buttons/calculateButton/calculateButton.js";
 import { updateLastInput } from "./inputTracking/inputTracker.js";
+import { evaluateRowRemoval } from "./buttons/removeRow/removeButton.js";
 
+// Make an edit - function should take eventTarget as an arg
 const calculateButton = document.getElementById("calculate_button");
 calculateButton.addEventListener("click", () => {
    // Fetch the exchange rates & calculate
@@ -17,6 +19,10 @@ addCurrencyButton.addEventListener("click", () => {
    const newCurrencyRow = cloneCurrencyRow();
    document.querySelector("tbody").append(newCurrencyRow);
 });
+
+// Add an event listener in the clone row function
+const removeRowButton = document.getElementsByClassName("remove_row_button")[0];
+removeRowButton.addEventListener("click", (event) => evaluateRowRemoval(event.target));
 
 // For some reason adding the event listener in a loop does not work
 const amountInput = document.getElementsByClassName("exchange_currency_amount");
