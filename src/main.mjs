@@ -30,3 +30,6 @@ removeRowButton.addEventListener("click", (event) => evaluateRowRemoval(event.ta
 const amountInput = document.getElementsByClassName("exchange_currency_amount");
 amountInput[0].addEventListener("input", (event) => updateLastInput(event.target));
 amountInput[1].addEventListener("input", (event) => updateLastInput(event.target));
+
+const resetButton = document.getElementById("reset_button");
+resetButton.addEventListener("click", () => location.reload());
