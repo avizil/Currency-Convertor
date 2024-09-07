@@ -1,4 +1,3 @@
-// import { lastInput } from "../consts/consts.js";
 export const lastInput = {};
 export function updateLastInput(eventTarget) {
     const row = eventTarget.closest("tr");

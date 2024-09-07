@@ -1,5 +1,4 @@
 import { fetchExchangeRates } from "../../requestHandler/fetchHandler.js";
-import { rateIndex, currNameIndex } from "../../consts/consts.js";
 import { ExchageRates } from "../../interfaces/exchangeRates/exchageRates.interface.js";
 import { calculateRates } from "../../calculationLogic/calculationLogic.js";
 import { lastInput } from "../../inputTracking/inputTracker.js";
@@ -17,7 +16,7 @@ function populateRates(exchageRates: ExchageRates) {
    const rows: HTMLCollection = document.getElementsByClassName("exchage_currency_row");
    (Array.from(rows) as HTMLTableRowElement[]).forEach((row: HTMLTableRowElement) => {
       const currName: string = (row.querySelector("input.exchage_currency_name") as HTMLInputElement).value;
-      row.children[rateIndex].textContent = String(roundNumberTo2Decimals(exchageRates.rates.get(currName)!));
+      row.querySelector("td.td__rate")!.textContent = String(roundNumberTo2Decimals(exchageRates.rates.get(currName)!));
    });
 }
 

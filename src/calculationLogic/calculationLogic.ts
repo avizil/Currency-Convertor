@@ -1,5 +1,4 @@
 import { ExchageRates } from "../interfaces/exchangeRates/exchageRates.interface.js";
-import { amountIndex, currNameIndex } from "../consts/consts.js";
 
 // Arguments: the last changed currency by the user {inputCurrency} (the calculation will be based on it), the fetch results {ExchangeRates}
 export function calculateRates(inputCurrency: string, inputAmount: number, exchageRates: ExchageRates): Map<string, number> {
