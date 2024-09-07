@@ -1,5 +1,5 @@
 import { lastInput } from "../../inputTracking/inputTracker.js";
-import { decreaseRowCount, rowCounter } from "../../utilities/rowCounter/rowCounter.js";
+import { decreaseRowCount, rowCounter, updateRowNumbering } from "../../utilities/rowCounter/rowCounter.js";
 
 export function evaluateRowRemoval(eventTarget: HTMLElement) {
    if (rowCounter < 2) {
@@ -23,4 +23,5 @@ export function removeRow(eventTarget: HTMLElement) {
    }
    decreaseRowCount();
    row.remove();
+   updateRowNumbering();
 }
