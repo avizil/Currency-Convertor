@@ -1,5 +1,4 @@
 import { InputCurrency } from "../interfaces/inputCurrency/inputCurrency.interface.js";
-// import { lastInput } from "../consts/consts.js";
 
 export const lastInput: InputCurrency = {};
 

@@ -1,5 +1,4 @@
 import { fetchExchangeRates } from "../../requestHandler/fetchHandler.js";
-import { rateIndex } from "../../consts/consts.js";
 import { calculateRates } from "../../calculationLogic/calculationLogic.js";
 import { lastInput } from "../../inputTracking/inputTracker.js";
 import { roundNumberTo2Decimals } from "../../utilities/math/rounding.js";
@@ -14,7 +13,7 @@ function populateRates(exchageRates) {
     const rows = document.getElementsByClassName("exchage_currency_row");
     Array.from(rows).forEach((row) => {
         const currName = row.querySelector("input.exchage_currency_name").value;
-        row.children[rateIndex].textContent = String(roundNumberTo2Decimals(exchageRates.rates.get(currName)));
+        row.querySelector("td.td__rate").textContent = String(roundNumberTo2Decimals(exchageRates.rates.get(currName)));
     });
 }
 // Currently finding the index of the amount cell, to use it instead of document.evaluate each iterationwhat
