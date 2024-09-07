@@ -3,6 +3,7 @@ import { cloneCurrencyRow } from "./buttons/addCurrencyRow/addCurrencyRow.js";
 import { initiateCalculation } from "./buttons/calculateButton/calculateButton.js";
 import { updateLastInput } from "./inputTracking/inputTracker.js";
 import { evaluateRowRemoval } from "./buttons/removeRow/removeButton.js";
+import { updateRowNumbering } from "./utilities/rowCounter/rowCounter.js";
 
 // Make an edit - function should take eventTarget as an arg
 const calculateButton = document.getElementById("calculate_button");
@@ -18,6 +19,7 @@ const addCurrencyButton = document.getElementById("add_currency_button");
 addCurrencyButton.addEventListener("click", () => {
    const newCurrencyRow = cloneCurrencyRow();
    document.querySelector("tbody").append(newCurrencyRow);
+   updateRowNumbering();
 });
 
 // Add an event listener in the clone row function

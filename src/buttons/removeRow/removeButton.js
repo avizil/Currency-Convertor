@@ -1,5 +1,5 @@
 import { lastInput } from "../../inputTracking/inputTracker.js";
-import { decreaseRowCount, rowCounter } from "../../utilities/rowCounter/rowCounter.js";
+import { decreaseRowCount, rowCounter, updateRowNumbering } from "../../utilities/rowCounter/rowCounter.js";
 export function evaluateRowRemoval(eventTarget) {
     if (rowCounter < 2) {
         return;
@@ -22,5 +22,6 @@ export function removeRow(eventTarget) {
     }
     decreaseRowCount();
     row.remove();
+    updateRowNumbering();
 }
 //# sourceMappingURL=removeButton.js.map

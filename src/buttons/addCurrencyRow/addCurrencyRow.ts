@@ -1,6 +1,6 @@
 import { updateLastInput } from "../../inputTracking/inputTracker.js";
 import { evaluateRowRemoval, removeRow } from "../removeRow/removeButton.js";
-import { increaseRowCount } from "../../utilities/rowCounter/rowCounter.js";
+import { increaseRowCount, updateRowNumbering } from "../../utilities/rowCounter/rowCounter.js";
 
 // First approach: clone the existing row
 
