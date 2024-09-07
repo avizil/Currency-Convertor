@@ -3,6 +3,7 @@ import { rateIndex, currNameIndex } from "../../consts/consts.js";
 import { ExchageRates } from "../../interfaces/exchangeRates/exchageRates.interface.js";
 import { calculateRates } from "../../calculationLogic/calculationLogic.js";
 import { lastInput } from "../../inputTracking/inputTracker.js";
+import { roundNumberTo2Decimals } from "../../utilities/math/rounding.js";
 
 // Arguments: baseCurrency - the currency which was entered, conversionCurrencies - a list of all currencies to be converted to
 export async function initiateCalculation(baseCurrency: string, conversionCurrencies: string[]) {
@@ -16,7 +17,7 @@ function populateRates(exchageRates: ExchageRates) {
    const rows: HTMLCollection = document.getElementsByClassName("exchage_currency_row");
    (Array.from(rows) as HTMLTableRowElement[]).forEach((row: HTMLTableRowElement) => {
       const currName: string = (row.querySelector("input.exchage_currency_name") as HTMLInputElement).value;
-      row.children[rateIndex].textContent = String(exchageRates.rates.get(currName));
+      row.children[rateIndex].textContent = String(roundNumberTo2Decimals(exchageRates.rates.get(currName)!));
    });
 }
 
@@ -27,7 +28,7 @@ function populateAmounts(amountsMap: Map<string, number>) {
       const currName: string = (row.querySelector("input.exchage_currency_name") as HTMLInputElement).value;
       if (amountsMap.has(currName)) {
          const amountInput: HTMLInputElement = row.querySelector("input.exchange_currency_amount") as HTMLInputElement;
-         amountInput.value = String(amountsMap.get(currName));
+         amountInput.value = String(roundNumberTo2Decimals(amountsMap.get(currName)!));
       }
    });
 }
