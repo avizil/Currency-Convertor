@@ -1,6 +1,7 @@
 import { updateLastInput } from "../../inputTracking/inputTracker.js";
 import { evaluateRowRemoval, removeRow } from "../removeRow/removeButton.js";
 import { increaseRowCount, updateRowNumbering } from "../../utilities/rowCounter/rowCounter.js";
+import { addListenersToRow } from "../../eventlisteners/addListeners/addListeners.js";
 
 // First approach: clone the existing row
 
@@ -13,16 +14,12 @@ export function cloneCurrencyRow(): HTMLTableRowElement {
    // Modify the cloned row
    newCurrencyRow.querySelector("button.add_currency_button")?.remove(); // Remove cloned button (to avoid ID issues)
    newCurrencyRow.appendChild(addCurrencyButton); // Move button to the new row
-   // document.querySelector("tbody")!.append(newCurrencyRow); // Add the row to the table
    appendLabel(newCurrencyRow); // Change the row's label
    Array.from(newCurrencyRow.querySelectorAll("input")).forEach((input) => (input.value = "")); // Remove the cloned input data
    newCurrencyRow.querySelector("td.td__rate")!.textContent = "";
 
-   // Add event listeners - input detection, remove button
-   const amountInput: HTMLInputElement = newCurrencyRow.querySelector("input.exchange_currency_amount") as HTMLInputElement;
-   amountInput.addEventListener("input", (event) => updateLastInput(event.target as HTMLInputElement));
-   const removeRowButton: HTMLButtonElement = newCurrencyRow.querySelector("button.remove_row_button") as HTMLButtonElement;
-   removeRowButton.addEventListener("click", (event) => evaluateRowRemoval(event.target as HTMLElement));
+   // Add the event listeners to the row
+   addListenersToRow(newCurrencyRow);
 
    increaseRowCount();
    return newCurrencyRow;

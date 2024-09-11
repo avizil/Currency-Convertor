@@ -4,6 +4,7 @@ import { initiateCalculation } from "./buttons/calculateButton/calculateButton.j
 import { updateLastInput } from "./inputTracking/inputTracker.js";
 import { evaluateRowRemoval } from "./buttons/removeRow/removeButton.js";
 import { updateRowNumbering } from "./utilities/rowCounter/rowCounter.js";
+import { addListenersToRow } from "./eventlisteners/addListeners/addListeners.js";
 
 // Make an edit - function should take eventTarget as an arg
 const calculateButton = document.getElementById("calculate_button");
@@ -22,14 +23,8 @@ addCurrencyButton.addEventListener("click", () => {
    updateRowNumbering();
 });
 
-// Add an event listener in the clone row function
-const removeRowButton = document.getElementsByClassName("remove_row_button")[0];
-removeRowButton.addEventListener("click", (event) => evaluateRowRemoval(event.target));
-
-// For some reason adding the event listener in a loop does not work
-const amountInput = document.getElementsByClassName("exchange_currency_amount");
-amountInput[0].addEventListener("input", (event) => updateLastInput(event.target));
-amountInput[1].addEventListener("input", (event) => updateLastInput(event.target));
-
 const resetButton = document.getElementById("reset_button");
 resetButton.addEventListener("click", () => location.reload());
+
+const rows = document.getElementsByClassName("exchage_currency_row");
+Array.from(rows).forEach((row) => addListenersToRow(row));

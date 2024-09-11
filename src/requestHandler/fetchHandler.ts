@@ -20,12 +20,3 @@ export async function fetchExchangeRates(baseCurrency: string, conversionCurrenc
    }
    return { baseCurrency: "", rates: new Map() };
 }
-
-async function a(/*base: string, currencies: string[]*/) {
-   const b = await fetchExchangeRates("USD", ["ILS", "EUR", "GBP"]);
-   console.log(b);
-   console.log("ILS - " + b.rates.get("ILS"));
-}
-// a();
-
-// fetchExchangeRates("USD", ["ILS", "GBP"]);
