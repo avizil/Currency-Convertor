@@ -5,7 +5,6 @@ const baseUrl = "https://api.fxratesapi.com/";
 
 export async function fetchExchangeRates(baseCurrency: string, conversionCurrencies: string[]): Promise<ExchageRates> {
    const requestUrl = baseUrl + "latest?base=" + baseCurrency + "&currencies=" + conversionCurrencies.join(",");
-   console.log(requestUrl);   
    try {
       const response = await fetch(requestUrl);
       if (response.status === 200) {
@@ -21,12 +20,3 @@ export async function fetchExchangeRates(baseCurrency: string, conversionCurrenc
    }
    return { baseCurrency: "", rates: new Map() };
 }
-
-async function a(/*base: string, currencies: string[]*/) {
-   const b = await fetchExchangeRates("USD", ["ILS", "EUR", "GBP"]);
-   console.log(b);
-   console.log("ILS - " + b.rates.get("ILS"));
-}
-// a();
-
-// fetchExchangeRates("USD", ["ILS", "GBP"]);
