@@ -2,6 +2,7 @@
 const baseUrl = "https://api.fxratesapi.com/";
 export async function fetchExchangeRates(baseCurrency, conversionCurrencies) {
     const requestUrl = baseUrl + "latest?base=" + baseCurrency + "&currencies=" + conversionCurrencies.join(",");
+    console.log(requestUrl);
     try {
         const response = await fetch(requestUrl);
         if (response.status === 200) {
