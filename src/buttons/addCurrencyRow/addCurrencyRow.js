@@ -1,5 +1,5 @@
 import { increaseRowCount } from "../../utilities/rowCounter/rowCounter.js";
-import { addListenersToRow } from "../../eventlisteners/addListeners/addListeners.js";
+import { addListenersToRow } from "../../eventlisteners/newRow/addListeners.js";
 // First approach: clone the existing row
 export function cloneCurrencyRow() {
     // Clone the row

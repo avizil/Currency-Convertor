@@ -1,7 +1,7 @@
 import { updateLastInput } from "../../inputTracking/inputTracker.js";
 import { evaluateRowRemoval, removeRow } from "../removeRow/removeButton.js";
 import { increaseRowCount, updateRowNumbering } from "../../utilities/rowCounter/rowCounter.js";
-import { addListenersToRow } from "../../eventlisteners/addListeners/addListeners.js";
+import { addListenersToRow } from "../../eventlisteners/newRow/addListeners.js";
 
 // First approach: clone the existing row
 
