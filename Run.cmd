@@ -1,0 +1,2 @@
+batch 
+  yarn start:windows
