@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "xdg-open http://localhost:3000 && node server.mjs "
+    "start": "xdg-open http://localhost:3000 && node server.mjs ",
+    "start:windows": "start http://localhost:3000 && node server.mjs"
   },
   "dependencies": {
     "ts-node": "^10.9.2",
