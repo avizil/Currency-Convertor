@@ -7,9 +7,10 @@ Unlike most currency convertor in the web, it allows a few key features:
 
 -  Conversion from one currency to multiple other currencies.
 -  Reverse conversion - from one of the selected currencies, to the rest.
-   I originally developed this app to help me with vacation planning abroad. When planning vacations, while searching the web for flight/hotel/attraction prices, we face many different currencies, which are different from our native coin.
-   This requires conversion from different currencies, which requires new tabs/switching the selected currencies.
-   This app allows you to select all the relevant currencies, and have them in one page, without the need to switch tabs every time.
+
+I originally developed this app to help me with vacation planning abroad. When planning vacations, while searching the web for flight/hotel/attraction prices, we face many different currencies, which are different from our native coin.
+This requires conversion from different currencies, which requires new tabs/switching the selected currencies.
+This app allows you to select all the relevant currencies, and have them in one page, without the need to switch tabs every time.
 
 ## How to use:
 
