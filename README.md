@@ -19,9 +19,10 @@ This app allows you to select all the relevant currencies, and have them in one 
 3. Install NodeJS.
 4. Run yarn install/npm install in the terminal.
 5. Depending on your OS:
-   -  Linux/MacOS:
+   -  Linux/MacOS: either
       -  Run npm/yarn start in the terminal
-   -  Windows: 2 options
+      -  Right click Run-Linux.sh, click Execute as a Program
+   -  Windows: either
       -  Run npm/yarn start:windows in the terminal
       -  Open the file 'Run.cmd' which is located in the repository's root.
          -  Shortcuts of this file can be made.
