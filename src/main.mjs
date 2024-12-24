@@ -7,9 +7,8 @@ calculateButton.addEventListener("click", () => calculateButtonListener());
 const addCurrencyButton = document.getElementById("add_currency_button");
 addCurrencyButton.addEventListener("click", () => addRowButtonListener());
 
-
 const resetButton = document.getElementById("reset_button");
-resetButton.addEventListener("click", () => location.reload());
+resetButton.addEventListener("click", () => location.replace(location.href));
 
 const rows = document.getElementsByClassName("exchage_currency_row");
 Array.from(rows).forEach((row) => addListenersToRow(row));
